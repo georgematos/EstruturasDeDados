@@ -62,4 +62,28 @@ public class VetorTest {
 		assertEquals(false, lista.contem(aluno2));
 	}
 	
+	@Test
+	public void deveRetornarObjetoNaPosicaoPassada() {
+		Vetor lista = new Vetor();
+		Aluno aluno = new Aluno();
+		aluno.setNome("George");
+		
+		lista.adiciona(aluno);
+		
+		Aluno alunoGeorge = lista.pega(0);
+		
+		assertEquals(aluno, alunoGeorge);
+	}
+	
+	@Test(expected=IllegalArgumentException.class)
+	public void deveRetornaExcecaoCasoPosicaoNaoEstejaOcupada() {
+		Vetor lista = new Vetor();
+		Aluno aluno = new Aluno();
+		Aluno aluno2 = new Aluno();
+		aluno.setNome("George");
+		aluno2.setNome("Livia");
+		
+		lista.pega(2);
+	}
+	
 }

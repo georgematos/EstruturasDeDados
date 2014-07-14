@@ -16,7 +16,10 @@ public class Vetor {
 	}
 
 	public Aluno pega(int posicao) {
-		return alunos[posicao];
+		if (alunos[posicao] != null) {
+			return alunos[posicao];
+		}
+		throw new IllegalArgumentException("Posição inválida");
 	}
 
 	public void remove(int posicao) {
@@ -24,7 +27,7 @@ public class Vetor {
 	}
 
 	public boolean contem(Aluno aluno) {
-		for (int i = 0; i < this.alunos.length; i++) {
+		for (int i = 0; i < totalDeAlunos; i++) {
 			if (aluno.equals(alunos[i])) {
 				return true;
 			}
