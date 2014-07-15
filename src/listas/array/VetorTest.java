@@ -1,4 +1,4 @@
-package listas;
+package listas.array;
 
 import static org.junit.Assert.assertEquals;
 
