@@ -17,8 +17,8 @@ public class VetorTest {
 		lista.adiciona(aluno);
 		lista.adiciona(aluno2);
 
-		assertEquals("George", lista.pega(0).getNome());
-		assertEquals("Livia", lista.pega(1).getNome());
+		assertEquals("George", ((Aluno) lista.pega(0)).getNome());
+		assertEquals("Livia", ((Aluno) lista.pega(1)).getNome());
 	}
 
 	@Test
@@ -70,7 +70,7 @@ public class VetorTest {
 		
 		lista = builder.build(5).cria();
 
-		Aluno alunoRetornado = lista.pega(1);
+		Aluno alunoRetornado = (Aluno) lista.pega(1);
 		
 		assertEquals("Aluno1", alunoRetornado.getNome());
 		assertEquals(5, lista.tamanho());
@@ -95,7 +95,7 @@ public class VetorTest {
 				
 		lista.adiciona(2, new Aluno("George"));
 		
-		assertEquals("George", lista.pega(2).getNome());
+		assertEquals("George", ((Aluno) lista.pega(2)).getNome());
 	}
 	
 	@Test
@@ -106,7 +106,7 @@ public class VetorTest {
 		
 		lista.remove(1); // remove o Aluno1
 		
-		assertEquals("Aluno2", lista.pega(1).getNome()); // caso tudo saia ok, o aluno 2 deve estar agora na posicao 1
+		assertEquals("Aluno2", ((Aluno) lista.pega(1)).getNome()); // caso tudo saia ok, o aluno 2 deve estar agora na posicao 1
 		assertEquals(4, lista.tamanho()); // e o tamanho do array dever ser 4
 	}
 

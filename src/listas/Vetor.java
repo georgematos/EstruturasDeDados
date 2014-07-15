@@ -1,10 +1,11 @@
 package listas;
 
+
 public class Vetor {
 
 	// declarando e inicializando um array de Aluno com capacidade 100.
-	private Aluno[] alunos = new Aluno[100];
-	private int totalDeAlunos = 0;
+	private Object[] objetos = new Object[100];
+	private int totalDeObjetos = 0;
 
 	/**
 	 * 
@@ -13,10 +14,10 @@ public class Vetor {
 	 * Adiciona um novo aluno na ultima posicao
 	 * @param aluno
 	 */
-	public void adiciona(Aluno aluno) {
+	public void adiciona(Object objeto) {
 		this.garantaEspaco();
-		alunos[totalDeAlunos] = aluno;
-		this.totalDeAlunos++;
+		objetos[totalDeObjetos] = objeto;
+		this.totalDeObjetos++;
 	}
 
 	/**
@@ -27,18 +28,18 @@ public class Vetor {
 	 * @param posicao
 	 * @param aluno
 	 */
-	public void adiciona(int posicao, Aluno aluno) {
+	public void adiciona(int posicao, Object objeto) {
 		this.garantaEspaco();
 		if (!isPosicaoValida(posicao)) {
 			throw new IllegalArgumentException("Posicao invalida");
 		}
 		
-		for (int i = totalDeAlunos - 1; i >= posicao; i-=1) {
-			alunos[i + 1] = alunos[i];
+		for (int i = totalDeObjetos - 1; i >= posicao; i-=1) {
+			objetos[i + 1] = objetos[i];
 		}
 		
-		alunos[posicao] = aluno;
-		totalDeAlunos++;
+		objetos[posicao] = objeto;
+		totalDeObjetos++;
 	}
 
 	/**
@@ -49,9 +50,9 @@ public class Vetor {
 	 * @param posicao
 	 * @return
 	 */
-	public Aluno pega(int posicao) {
-		if (alunos[posicao] != null) {
-			return alunos[posicao];
+	public Object pega(int posicao) {
+		if (objetos[posicao] != null) {
+			return objetos[posicao];
 		}
 		throw new IllegalArgumentException("Posição inválida");
 	}
@@ -68,11 +69,11 @@ public class Vetor {
 			throw new IllegalArgumentException("Posição inválida");
 		}
 		
-		for (int i = posicao; i < alunos.length -1; i++) {
-			alunos[i] = alunos[i + 1];			
+		for (int i = posicao; i < objetos.length -1; i++) {
+			objetos[i] = objetos[i + 1];			
 		}
 		
-		totalDeAlunos--;
+		totalDeObjetos--;
 	}
 
 	/**
@@ -83,9 +84,9 @@ public class Vetor {
 	 * @param aluno
 	 * @return
 	 */
-	public boolean contem(Aluno aluno) {
-		for (int i = 0; i < totalDeAlunos; i++) {
-			if (aluno.equals(alunos[i])) {
+	public boolean contem(Object objeto) {
+		for (int i = 0; i < totalDeObjetos; i++) {
+			if (objeto.equals(objetos[i])) {
 				return true;
 			}
 		}
@@ -100,7 +101,7 @@ public class Vetor {
 	 * @return
 	 */
 	public int tamanho() {
-		return totalDeAlunos;
+		return totalDeObjetos;
 	}
 	
 	/**
@@ -112,7 +113,7 @@ public class Vetor {
 	 * @return
 	 */
 	private boolean isPosicaoValida(int posicao) {
-		return posicao >=0 && posicao <= totalDeAlunos;
+		return posicao >=0 && posicao <= totalDeObjetos;
 	}
 	
 	/**
@@ -123,12 +124,12 @@ public class Vetor {
 	 * seu tamanho dobrado.
 	 */
 	private void garantaEspaco() {
-		if (totalDeAlunos == alunos.length) {
-			Aluno[] novaArray = new Aluno[alunos.length * 2];
-			for (int i = 0; i < alunos.length; i++) {
-				novaArray[i] = alunos[i];
+		if (totalDeObjetos == objetos.length) {
+			Object[] novaArray = new Object[objetos.length * 2];
+			for (int i = 0; i < objetos.length; i++) {
+				novaArray[i] = objetos[i];
 			}
-			alunos = novaArray;
+			objetos = novaArray;
 		}
 	}
 
@@ -140,19 +141,19 @@ public class Vetor {
 	 */
 	@Override
 	public String toString() {
-		if (totalDeAlunos == 0) {
+		if (totalDeObjetos == 0) {
 			return "[]";
 		}
 
 		StringBuilder builder = new StringBuilder();
 		builder.append("[");
 
-		for (int i = 0; i < totalDeAlunos - 1; i++) {
-			builder.append(alunos[i]);
+		for (int i = 0; i < totalDeObjetos - 1; i++) {
+			builder.append(objetos[i]);
 			builder.append(", ");
 		}
 
-		builder.append(alunos[totalDeAlunos - 1]);
+		builder.append(objetos[totalDeObjetos - 1]);
 		builder.append("]");
 
 		return builder.toString();
