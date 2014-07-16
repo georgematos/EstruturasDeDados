@@ -21,6 +21,7 @@ public class ListaLigada {
 		} else {
 			Celula nova = new Celula(elemento, null);
 			ultima.setProxima(nova);
+			nova.setAnterior(ultima);
 			ultima = nova;
 			totalDeElementos++;
 		}
@@ -41,8 +42,11 @@ public class ListaLigada {
 			adiciona(elemento);
 		} else {
 			Celula anterior = pegaCelula(posicao - 1);
+			Celula proxima = anterior.getProxima();
 			Celula nova = new Celula(elemento, anterior.getProxima());
+			nova.setAnterior(anterior);
 			anterior.setProxima(nova);
+			proxima.setAnterior(nova);
 			totalDeElementos++;
 		}
 	}
@@ -129,11 +133,14 @@ public class ListaLigada {
 	 * @param elemento
 	 */
 	public void adicionaNoComeco(Object elemento) {
-		Celula nova = new Celula(elemento, primeira);
-		primeira = nova;
-		
-		if(totalDeElementos == 0) {
-			ultima = primeira;
+		if (totalDeElementos == 0) {
+			Celula nova = new Celula(elemento, null);
+			primeira = nova;
+			ultima = nova;
+		} else {
+			Celula nova = new Celula(elemento, primeira);
+			primeira.setAnterior(nova);
+			primeira = nova;
 		}
 		
 		totalDeElementos++;
