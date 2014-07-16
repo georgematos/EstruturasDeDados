@@ -1,4 +1,4 @@
-package pilhas;
+package pilha;
 
 public class Peca {
 

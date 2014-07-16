@@ -66,7 +66,7 @@ public class VetorTest {
 	public void deveRetornarObjetoNaPosicaoPassada() {
 		Vetor lista = new Vetor();
 		
-		AlunoBuilder builder = new AlunoBuilder();
+		AlunoVetorBuilder builder = new AlunoVetorBuilder();
 		
 		lista = builder.build(5).cria();
 
@@ -90,7 +90,7 @@ public class VetorTest {
 	@Test
 	public void deveAdicionarUmAlunoEmUmaPosicaoEspecifica() {
 		Vetor lista = new Vetor();
-		AlunoBuilder builder = new AlunoBuilder();
+		AlunoVetorBuilder builder = new AlunoVetorBuilder();
 		lista = builder.build(5).cria();
 				
 		lista.adiciona(2, new Aluno("George"));
@@ -101,7 +101,7 @@ public class VetorTest {
 	@Test
 	public void deveRemoverOAlunoDaPosicaoPassadaEDeslocarOsDaDiretaParaPreencherOEsapacoVazio() {
 		Vetor lista = new Vetor();
-		AlunoBuilder builder = new AlunoBuilder();
+		AlunoVetorBuilder builder = new AlunoVetorBuilder();
 		lista = builder.build(5).cria();
 		
 		lista.remove(1); // remove o Aluno1
