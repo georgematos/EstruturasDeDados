@@ -4,9 +4,9 @@ public class ConjuntoEspalhamentoBuilder {
 
 	private ConjuntoEspalhamento conjunto = new ConjuntoEspalhamento();
 
-	public ConjuntoEspalhamentoBuilder build(String ... palavras) {
-		for (String palavra : palavras) {
-			conjunto.adiciona(palavra);
+	public ConjuntoEspalhamentoBuilder build(Object ... objects) {
+		for (Object object : objects) {
+			conjunto.adiciona(object);
 		}
 		return this;
 	}
