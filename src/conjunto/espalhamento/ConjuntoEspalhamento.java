@@ -16,14 +16,6 @@ public class ConjuntoEspalhamento {
 		}
 	}
 
-//	private int calculaCodigoDeEspalhamento(String palavra) {
-//		int codigo = 1;
-//		for (int i = 0; i < palavra.length(); i++) {
-//			codigo = 31 * codigo + palavra.charAt(i);
-//		}
-//		return codigo;
-//	}
-
 	public int calculaIndiceDaTabela(Object objeto) {
 		// int indice = object.toLowerCase().charAt(0) % 26; // o resto da divisão de qualquer numero sempre será um numero entre 0 e ele mesmo
 		// return indice;
