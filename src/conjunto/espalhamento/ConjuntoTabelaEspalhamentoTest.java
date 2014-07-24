@@ -2,6 +2,8 @@ package conjunto.espalhamento;
 
 import static org.junit.Assert.assertTrue;
 
+import java.util.HashSet;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -86,7 +88,27 @@ public class ConjuntoTabelaEspalhamentoTest {
 
 		System.out.println("Tempo: " +  (fim - inicio) / 1000.0);
 
-		assertTrue(((fim - inicio) /1000.0) <= 0.500);
+	}
+	
+	@Test
+	public void deveCalcularDesempenhoDaHashSet() {
+		long inicio = System.currentTimeMillis();
+		
+		HashSet<String> hSet = new HashSet<>();
+		
+		for (int i = 0; i < 500000; i++) {
+			hSet.add("palavra" + i);
+		}
+		
+		for (int i = 0; i < 500000; i++) {
+			hSet.contains("palavra" + i);
+		}
+		
+		System.out.println("Verificando se consegui adicionar uma palavra repetida: " + hSet.add("palavra0"));
+		
+		long fim = System.currentTimeMillis();
+		
+		System.out.println("Tempo: " +  (fim - inicio) / 1000.0);
 	}
 
 }
