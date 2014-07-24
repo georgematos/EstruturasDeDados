@@ -26,7 +26,6 @@ public class ConjuntoEspalhamento {
 
 	}
 
-
 	public void adiciona(Object object) {
 		if (!contem(object)) {
 

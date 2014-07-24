@@ -109,6 +109,7 @@ public class ConjuntoTabelaEspalhamentoTest {
 		long fim = System.currentTimeMillis();
 		
 		System.out.println("Tempo: " +  (fim - inicio) / 1000.0);
+
 	}
 
 }
